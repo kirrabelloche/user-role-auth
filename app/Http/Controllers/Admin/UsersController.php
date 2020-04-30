@@ -18,7 +18,7 @@ class UsersController extends Controller
         $this->middleware('auth');
 
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -35,9 +35,14 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(user $user)
     {
-        //
+           $roles = Role::all();
+        return view('admin.users.create',[
+            'user' => $user,
+            'roles' => $roles
+
+        ]);
     }
 
     /**
@@ -46,9 +51,17 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, user $user)
     {
-        //
+        $user=User::create($request->all());
+        $user->roles()->sync($request->roles);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+
+
+        $user->save();
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -70,7 +83,7 @@ class UsersController extends Controller
      */
     public function edit(user $user)
     {
-       
+
        if( Gate::denies('edit-users')){
         return redirect()->route('admin.users.index ');
        }
@@ -79,7 +92,7 @@ class UsersController extends Controller
         return view('admin.users.edit' , [
             'user' => $user,
             'roles' => $roles
-            
+
         ]);
     }
 
@@ -96,8 +109,8 @@ class UsersController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
-
         
+
         return redirect()->route('admin.users.index');
     }
 
@@ -120,4 +133,21 @@ class UsersController extends Controller
 
       return redirect()->route('admin.users.index');
     }
+}
+class UserCreateRequest extends Request {
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'username' => 'required|max:30|alpha|unique:users',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|confirmed|min:8'
+        ];
+    }
+
 }

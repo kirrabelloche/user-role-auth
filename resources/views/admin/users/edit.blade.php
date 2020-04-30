@@ -60,7 +60,7 @@
                     @endforeach
                     <button type="submit" class="btn btn-primary"> Edit roles</button>
 
-                 </form>
+                 
          {!! form::close() !!}
 
                 </div>

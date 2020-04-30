@@ -3,9 +3,14 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Listes des utilisateurs</div>
+                <div class="panel-heading"><h2>Listes des utilisateurs</h2></div>
+                <br>
+                <div class="col-md-2">
+                    <a href="{{route('admin.users.create')}}" class="btn btn-primary btn-lg"> Create New User</a>
+                </div>
+<br>
                 <div class="row">
                   <div class="col-md-12">
 
@@ -31,17 +36,19 @@
                                   @can('edit-users')
 
 
-                                            <a href=" {{ route('admin.users.edit',$user->id) }} " ><button class="btn btn-info btn-sm">Edit</button> </a>
+                                            <a href=" {{ route('admin.users.edit',$user->id) }} " ><button class="btn btn-primary btn-block">Edit</button> </a>
 
 
                                     @endcan
+                                   </td>
+                                   <td>
                                   @can('delete-users')
 
                                     <form  action="{{ route('admin.users.destroy',$user->id) }}" method="DELETE"  class="bb"
                                       style=" position: relative; ">
 
                                       {{ csrf_field() }}
-                                        <button class="btn btn-danger btn-sm" type="submit">DELETE</button>
+                                        <button class="btn btn-danger btn-block" type="submit">DELETE</button>
                                     </form>
 
 
