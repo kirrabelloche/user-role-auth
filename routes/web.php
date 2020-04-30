@@ -19,3 +19,10 @@ Route::post('profile', 'UserController@update_avatar');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// admin route
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function () {
+    Route::resource('users', 'UsersController');
+
+ });
+
