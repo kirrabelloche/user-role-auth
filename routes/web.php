@@ -26,9 +26,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 
  });
 // route validation ajax login + register
- Route::get('/login', 'LoginController@index')->name('login');
- Route::post('/login', 'LoginController@check_login')->name('login.check_login');
+ //Route::get('/login', 'LoginController@index')->name('login');
+// Route::post('/login', 'LoginController@check_login')->name('login.check_login');
 
- Route::get('/register', 'RegisterController@index')->name('register.index');
-Route::post('/register', 'RegisterController@store')->name('register.store');
+ //Route::get('/register', 'RegisterController@index')->name('register.index');
+//Route::post('/register', 'RegisterController@store')->name('register.store');
 
