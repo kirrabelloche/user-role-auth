@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 Route::get('profile', 'UserController@profile')->name('profile');
 Route::post('profile', 'UserController@update_avatar');
-Auth::routes();
+Auth::routes(['verify'=>true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
