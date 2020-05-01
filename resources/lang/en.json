@@ -1,0 +1,24 @@
+{
+    "A fresh verification link has been sent to your email address.') }}\n                        <\/div>\n                    @endif\n\n                    {{ __(": "liquez ici pour en demander un autre",
+    "click here to request another": "cliquez ici pour en demander un autre",
+    "Confirm Password": "Confirmez le mot de passe",
+    "E-Mail Address": "Adresse Email",
+    "Email : ": "Email",
+    "Forgot Your Password?": "Mot de passe oublié?",
+    "If you did not receive the email": "Si vous n'avez pas reçu l'e-mail",
+    "Login": "S'identifier",
+    "Logout": "Se déconnecter",
+    "Name": "Nom",
+    "Nom : ": "Nom",
+    "Nouvel utilisateur": "Nouvel utilisateur",
+    "Password": "Mot de passe",
+    "Please confirm your password before continuing.') }}\n\n                    <form method=": "Veuillez confirmer votre mot de passe avant de continuer",
+    "Register": "S'inscrire",
+    "Remember Me": "Souviens-toi de moi",
+    "Reset Password": "Réinitialiser le mot de passe",
+    "Send Password Reset Link": "Envoyer le lien de réinitialisation du mot de passe",
+    "Toggle navigation": "Basculer la navigation",
+    "Un nouvel utilisateur s": "Un nouvel utilisateur ",
+    "Verify Your Email Address": "Vérifiez votre adresse e-mail"
+    
+}

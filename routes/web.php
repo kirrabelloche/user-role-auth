@@ -32,3 +32,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
  //Route::get('/register', 'RegisterController@index')->name('register.index');
 //Route::post('/register', 'RegisterController@store')->name('register.store');
 
+ //route de changement de la langue
+ Route::name('language')->get('language/{lang}', 'HomeController@language');
+
